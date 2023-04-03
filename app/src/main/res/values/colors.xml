@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/md_blue_600_dark</color>
+    <color name="color_primary">@color/yelloww</color>
     <color name="color_primary_dark">@color/md_blue_700_dark</color>
     <color name="color_accent">@color/md_blue_600_dark</color>
 
@@ -9,6 +9,12 @@
     <color name="divider_grey">#88808080</color>
     <color name="default_text_color_light">@color/md_grey_800</color>
     <color name="default_text_color_dark">@color/md_grey_white</color>
+
+    <color name="yelloww">#FFC107</color>
+    <color name="dark_blue">#221f35</color>_
+    <color name="light_blue">#373553</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="dark">#13111E</color>
 
     <!-- Primary colors -->
     <color name="md_amber">#FFC107</color>
@@ -198,7 +204,7 @@
     <color name="md_grey_500">#9E9E9E</color>
     <color name="md_grey_600">#757575</color>
     <color name="md_grey_700">#616161</color>
-    <color name="md_grey_800">#424242</color>
+    <color name="md_grey_800">#ffffff</color>
     <color name="md_grey_black">#000000</color>
 
     <color name="md_grey_white_dark">#DFDFDF</color>

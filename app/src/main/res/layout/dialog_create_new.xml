@@ -15,6 +15,8 @@
         android:layout_marginBottom="@dimen/activity_margin"
         android:inputType="textCapSentences"
         android:singleLine="true"
+        android:textColorHint="#99FFFFFF"
+        android:textColor="@color/md_grey_white"
         android:textCursorDrawable="@null"
         android:textSize="@dimen/normal_text_size" />
 
@@ -27,6 +29,7 @@
             android:id="@+id/dialog_radio_directory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_white"
             android:layout_marginBottom="@dimen/medium_margin"
             android:checked="true"
             android:text="@string/folder" />
@@ -34,6 +37,7 @@
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/dialog_radio_file"
             android:layout_width="match_parent"
+            android:textColor="@color/md_grey_white"
             android:layout_height="wrap_content"
             android:text="@string/file" />
     </RadioGroup>

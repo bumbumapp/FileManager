@@ -6,6 +6,7 @@
     android:paddingStart="@dimen/activity_margin"
     android:paddingLeft="@dimen/activity_margin"
     android:paddingTop="@dimen/activity_margin"
+    android:textColor="@color/md_grey_white"
     android:paddingEnd="@dimen/activity_margin"
     android:paddingRight="@dimen/activity_margin"
     android:textSize="@dimen/normal_text_size"

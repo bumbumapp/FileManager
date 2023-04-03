@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera.any"
@@ -20,16 +21,25 @@
         android:allowClearUserData="false"
         android:description="@string/description"
         android:hasFragileUserData="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_logo"
         android:label="@string/app_name"
         android:manageSpaceActivity="com.securefilemanager.app.activities.ManageStorageActivity"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/app_logo"
         android:theme="@style/AppTheme"
         tools:targetApi="q">
-
+        <activity
+            android:name=".ImageViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PdfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.About"
+            android:label="@string/about"
+            android:theme="@style/AboutTheme"
+            android:exported="false" />
         <activity android:name=".activities.MainActivity">
-
             <meta-data
                 android:name="android.app.default_searchable"
                 android:resource="@xml/searchable" />
@@ -37,40 +47,40 @@
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.GET_CONTENT" />
+
                 <data android:mimeType="*/*" />
 
                 <category android:name="android.intent.category.OPENABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.RINGTONE_PICKER" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.SaveAsActivity"
             android:label="@string/save_as">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="text/plain" />
                 <data android:mimeType="image/*" />
                 <data android:mimeType="video/*" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.SEND_MULTIPLE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="text/plain" />
@@ -78,37 +88,26 @@
                 <data android:mimeType="video/*" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.ManageStorageActivity"
             android:label="@string/manage_storage" />
-
-        <activity
-            android:name=".activities.IntroActivity"
-            android:label="@string/introduction" />
-
         <activity
             android:name=".activities.DecompressActivity"
             android:label="@string/decompress" />
-
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/SettingsTheme">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activities.FavoritesActivity"
             android:label="@string/favorites"
-            android:parentActivityName=".activities.MainActivity" />
-
-        <activity
-            android:name=".activities.AboutActivity"
-            android:label="@string/about"
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
@@ -133,14 +132,12 @@
             android:exported="false"
             android:icon="@drawable/ic_launcher_foreground"
             android:label="ZipManagerService">
-
             <intent-filter>
                 <action android:name=".helpers.ZipManagerService.ACTION_COMPRESSION" />
                 <action android:name=".helpers.ZipManagerService.ACTION_DECOMPRESSION" />
                 <action android:name=".helpers.ZipManagerService.ACTION_STOP" />
             </intent-filter>
         </service>
-
         <service
             android:name=".services.UnlockAppService"
             android:description="@string/authentication_service_description"
@@ -149,7 +146,6 @@
             android:exported="false"
             android:icon="@drawable/ic_launcher_foreground"
             android:label="UnlockAppService">
-
             <intent-filter>
                 <action android:name=".helpers.UnlockAppService.ACTION_LOCK" />
                 <action android:name=".helpers.UnlockAppService.ACTION_STOP" />
@@ -165,12 +161,10 @@
             android:icon="@drawable/ic_launcher_foreground"
             android:label="LockReceiver"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-
             <intent-filter>
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

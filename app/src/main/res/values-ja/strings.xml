@@ -220,7 +220,7 @@
     <!-- Setting sections -->
     <string name="security">セキュリティ</string>
     <string name="file_operations">ファイル操作</string>
-    <string name="app_name">Secure File Manager Beta</string>
+    <string name="app_name">File Manager</string>
     <string name="app_launcher_name">安全なファイル</string>
     <string name="press_back_again">もう一度戻るボタンを押すと終了します</string>
     <string name="go_to_home_folder">ホームフォルダに戻る</string>

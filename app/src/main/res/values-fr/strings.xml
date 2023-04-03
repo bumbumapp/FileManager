@@ -222,7 +222,7 @@
     <!-- Setting sections -->
     <string name="security">Sécurité</string>
     <string name="file_operations">Opérations sur les fichiers</string>
-    <string name="app_name">Secure File Manager Bêta</string>
+    <string name="app_name">File Manager</string>
     <string name="app_launcher_name">Secure File</string>
     <string name="press_back_again">Appuyez à nouveau sur la touche retour pour sortir</string>
     <string name="go_to_home_folder">Aller au dossier d\'accueil</string>

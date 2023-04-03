@@ -8,6 +8,7 @@
     android:paddingStart="@dimen/small_margin"
     android:paddingTop="@dimen/activity_margin"
     android:paddingEnd="@dimen/normal_margin"
+    android:textColor="@color/md_grey_white"
     android:paddingBottom="@dimen/activity_margin"
     android:textSize="@dimen/bigger_text_size"
     tools:text="/storage/emulated/0" />

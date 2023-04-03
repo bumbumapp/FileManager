@@ -9,12 +9,14 @@
         android:id="@+id/property_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/md_grey_white"
         android:layout_marginTop="@dimen/activity_margin"
         android:textSize="@dimen/smaller_text_size" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/property_value"
         android:layout_width="match_parent"
+        android:textColor="@color/md_grey_white"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/small_margin"
         android:paddingRight="@dimen/small_margin" />

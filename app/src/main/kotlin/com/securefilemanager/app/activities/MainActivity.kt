@@ -64,21 +64,14 @@ class MainActivity : BaseAbstractActivity() {
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
 
-        if (!config.isAppWizardDone) {
-            startActivityForResult(
-                IntroActivity.getIntent(applicationContext, true),
-                INTRO_FINISHED
-            )
-        } else {
+
             if (savedInstanceState == null) {
                 tryInitFileManager()
                 checkInvalidFavorites()
-            }
+
         }
 
-        if (!config.isAppBetaWarningShowed) {
-            BetaWarningDialog(this)
-        }
+
     }
 
     override fun onPostResume() {
@@ -117,10 +110,8 @@ class MainActivity : BaseAbstractActivity() {
             R.id.add_favorite -> addFavorite()
             R.id.remove_favorite -> removeFavorite()
             R.id.set_as_home -> setAsHome()
-            R.id.intro -> startActivity(IntroActivity.getIntent(applicationContext, false))
-            R.id.tutorial -> openTutorial(delayed = false, cancellable = true)
             R.id.settings -> startActivity(Intent(applicationContext, SettingsActivity::class.java))
-            R.id.about -> startActivity(Intent(applicationContext, AboutActivity::class.java))
+            R.id.about -> startActivity(Intent(applicationContext, About::class.java))
             else -> return super.onOptionsItemSelected(item)
         }
         return true

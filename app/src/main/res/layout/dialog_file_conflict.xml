@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
+            android:textColor="@color/md_grey_white"
             android:paddingTop="@dimen/normal_margin"
             android:paddingBottom="@dimen/normal_margin"
             android:text="@string/skip" />
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/normal_margin"
+            android:textColor="@color/md_grey_white"
             android:paddingBottom="@dimen/normal_margin"
             android:text="@string/overwrite" />
 
@@ -47,12 +49,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/normal_margin"
+            android:textColor="@color/md_grey_white"
             android:paddingBottom="@dimen/normal_margin"
             android:text="@string/merge" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/conflict_dialog_radio_keep_both"
             android:layout_width="match_parent"
+            android:textColor="@color/md_grey_white"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/normal_margin"
             android:paddingBottom="@dimen/normal_margin"
@@ -64,6 +68,7 @@
         android:id="@+id/conflict_dialog_apply_to_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/md_grey_white"
         android:checked="true"
         android:paddingTop="@dimen/activity_margin"
         android:paddingBottom="@dimen/activity_margin"

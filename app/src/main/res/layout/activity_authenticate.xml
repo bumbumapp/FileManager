@@ -21,7 +21,8 @@
             android:text="@string/prompt_info_title"
             android:textSize="@dimen/extra_big_text_size"
             android:textStyle="bold"
-            app:drawableTopCompat="@drawable/ic_lock_open_vector_big" />
+            app:drawableTopCompat="@drawable/ic_lock_open_vector_big"
+            />
 
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

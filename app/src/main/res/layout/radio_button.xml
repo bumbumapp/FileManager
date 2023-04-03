@@ -3,5 +3,6 @@
     android:id="@+id/dialog_radio_button"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:textColor="@color/md_grey_white"
     android:paddingTop="@dimen/activity_margin"
     android:paddingBottom="@dimen/activity_margin" />

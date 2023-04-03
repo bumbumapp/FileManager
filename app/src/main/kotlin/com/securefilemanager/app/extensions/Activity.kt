@@ -8,6 +8,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.TransactionTooLargeException
 import android.provider.DocumentsContract
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -15,6 +16,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode
 import com.securefilemanager.app.BuildConfig
+import com.securefilemanager.app.ImageViewActivity
+import com.securefilemanager.app.PdfActivity
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.dialogs.WritePermissionDialog
@@ -464,7 +467,33 @@ fun Activity.tryOpenPathIntent(
     if (path.isZipFile()) {
         this.openZip(path)
     } else {
-        this.openPath(path, forceChooser, openAsType)
+        if (path.endsWith(".pdf")){
+            try {
+                val intent=Intent(applicationContext, PdfActivity::class.java)
+                intent.putExtra("paths",path)
+                startActivity(intent)
+            }catch (e:Exception){
+                Log.d("Tag","Erroro"+e.message)
+            }
+
+        }
+        else if (path.endsWith(".png") || path.endsWith(".jpg") ){
+            try {
+                val intent=Intent(applicationContext,ImageViewActivity::class.java)
+                intent.putExtra("photopaths",path)
+                startActivity(intent)
+            }catch (e:Exception){
+                Log.d("Tag","Erroro"+e.message)
+            }
+
+        }
+        else{
+            this.openPath(path, forceChooser, openAsType)
+        }
+
+
+
+
     }
 }
 

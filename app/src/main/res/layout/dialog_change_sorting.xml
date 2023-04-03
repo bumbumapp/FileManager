@@ -23,6 +23,7 @@
                 android:id="@+id/sorting_dialog_radio_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_grey_white"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/name" />
@@ -31,6 +32,7 @@
                 android:id="@+id/sorting_dialog_radio_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_grey_white"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/size" />
@@ -40,6 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
+                android:textColor="@color/md_grey_white"
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/last_modified" />
 
@@ -49,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
+                android:textColor="@color/md_grey_white"
                 android:text="@string/extension" />
 
         </RadioGroup>
@@ -68,6 +72,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
+                android:textColor="@color/md_grey_white"
                 android:text="@string/ascending" />
 
             <com.google.android.material.radiobutton.MaterialRadioButton
@@ -75,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
+                android:textColor="@color/md_grey_white"
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/descending" />
         </RadioGroup>
@@ -87,6 +93,7 @@
             android:id="@+id/sorting_dialog_use_for_this_folder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/md_grey_white"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/use_for_this_folder" />

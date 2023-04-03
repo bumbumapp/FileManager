@@ -37,14 +37,6 @@
         android:title="@string/set_as_home_folder"
         app:showAsAction="never" />
     <item
-        android:id="@+id/intro"
-        android:title="@string/introduction"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/tutorial"
-        android:title="@string/tutorial"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/settings"
         android:title="@string/settings"
         app:showAsAction="never" />
