@@ -5,7 +5,6 @@ import androidx.appcompat.app.AlertDialog
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.*
-import kotlinx.android.synthetic.main.dialog_create_new.view.*
 import java.io.File
 import java.io.IOException
 
@@ -121,3 +120,8 @@ class CreateNewItemDialog(
         callback(true)
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.dialog_radio_directory: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.dialog_radio_directory)
+private val android.view.View.dialog_radio_group: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.dialog_radio_group)
+private val android.view.View.item_name: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.item_name)

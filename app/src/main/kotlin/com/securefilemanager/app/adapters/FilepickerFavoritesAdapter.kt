@@ -10,7 +10,6 @@ import com.securefilemanager.app.extensions.config
 import com.securefilemanager.app.extensions.getTextSize
 import com.securefilemanager.app.extensions.standardizePath
 import com.securefilemanager.app.views.MyRecyclerView
-import kotlinx.android.synthetic.main.filepicker_favorite.view.*
 
 class FilepickerFavoritesAdapter(
     activity: BaseAbstractActivity,
@@ -72,3 +71,6 @@ class FilepickerFavoritesAdapter(
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.filepicker_favorite_label: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.filepicker_favorite_label)

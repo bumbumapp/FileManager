@@ -11,7 +11,6 @@ import com.securefilemanager.app.extensions.beVisibleIf
 import com.securefilemanager.app.extensions.config
 import com.securefilemanager.app.extensions.getInternalStoragePath
 import com.securefilemanager.app.interfaces.RefreshRecyclerViewListener
-import kotlinx.android.synthetic.main.activity_favorites.*
 
 class FavoritesActivity : BaseAbstractActivity(), RefreshRecyclerViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,3 +65,14 @@ class FavoritesActivity : BaseAbstractActivity(), RefreshRecyclerViewListener {
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.manage_favorites_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.manage_favorites_list)
+private val androidx.fragment.app.Fragment.manage_favorites_list: com.securefilemanager.app.views.MyRecyclerView get() = requireView().findViewById(com.securefilemanager.app.R.id.manage_favorites_list)
+private val android.app.Dialog.manage_favorites_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.manage_favorites_list)
+private val android.app.Activity.manage_favorites_placeholder: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.manage_favorites_placeholder)
+private val androidx.fragment.app.Fragment.manage_favorites_placeholder: com.google.android.material.textview.MaterialTextView get() = requireView().findViewById(com.securefilemanager.app.R.id.manage_favorites_placeholder)
+private val android.app.Dialog.manage_favorites_placeholder: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.manage_favorites_placeholder)
+private val android.app.Activity.manage_favorites_placeholder_2: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.manage_favorites_placeholder_2)
+private val androidx.fragment.app.Fragment.manage_favorites_placeholder_2: com.google.android.material.textview.MaterialTextView get() = requireView().findViewById(com.securefilemanager.app.R.id.manage_favorites_placeholder_2)
+private val android.app.Dialog.manage_favorites_placeholder_2: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.manage_favorites_placeholder_2)

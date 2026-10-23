@@ -25,10 +25,6 @@ import com.securefilemanager.app.services.ZipManagerService.Companion.EXTRA_PASS
 import com.securefilemanager.app.services.ZipManagerService.Companion.EXTRA_PATH
 import com.securefilemanager.app.views.FastScroller
 import com.securefilemanager.app.views.MyRecyclerView
-import kotlinx.android.synthetic.main.item_list_file_dir.view.*
-import kotlinx.android.synthetic.main.item_list_file_dir.view.item_frame
-import kotlinx.android.synthetic.main.item_list_file_dir.view.item_icon
-import kotlinx.android.synthetic.main.item_section.view.*
 import java.io.File
 
 class ItemsAdapter(
@@ -515,3 +511,11 @@ class ItemsAdapter(
         private const val TYPE_SECTION = 2
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.item_date: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.item_date)
+private val android.view.View.item_details: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.item_details)
+private val android.view.View.item_frame: android.widget.FrameLayout get() = findViewById(com.securefilemanager.app.R.id.item_frame)
+private val android.view.View.item_icon: android.widget.ImageView get() = findViewById(com.securefilemanager.app.R.id.item_icon)
+private val android.view.View.item_name: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.item_name)
+private val android.view.View.item_section: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.item_section)

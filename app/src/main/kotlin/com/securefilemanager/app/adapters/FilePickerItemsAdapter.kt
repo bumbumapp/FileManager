@@ -8,7 +8,6 @@ import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.formatSize
 import com.securefilemanager.app.models.FileDirItem
 import com.securefilemanager.app.views.MyRecyclerView
-import kotlinx.android.synthetic.main.filepicker_list_item.view.*
 
 class FilePickerItemsAdapter(
     activity: BaseAbstractActivity,
@@ -38,3 +37,8 @@ class FilePickerItemsAdapter(
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.list_item_details: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.list_item_details)
+private val android.view.View.list_item_icon: android.widget.ImageView get() = findViewById(com.securefilemanager.app.R.id.list_item_icon)
+private val android.view.View.list_item_name: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.list_item_name)

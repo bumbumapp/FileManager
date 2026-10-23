@@ -7,7 +7,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.setupDialogStuff
-import kotlinx.android.synthetic.main.dialog_write_permission.view.*
 
 class WritePermissionDialog(activity: Activity, val callback: () -> Unit) {
     var dialog: AlertDialog
@@ -37,3 +36,7 @@ class WritePermissionDialog(activity: Activity, val callback: () -> Unit) {
         callback()
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.write_permissions_dialog_image: android.widget.ImageView get() = findViewById(com.securefilemanager.app.R.id.write_permissions_dialog_image)
+private val android.view.View.write_permissions_dialog_image_sd: android.widget.ImageView get() = findViewById(com.securefilemanager.app.R.id.write_permissions_dialog_image_sd)

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.securefilemanager.app.R
 import com.securefilemanager.app.helpers.htmlText
-import kotlinx.android.synthetic.main.fragment_intro_hiding.*
 
 class IntroHidingFragment : Fragment() {
 
@@ -28,3 +27,8 @@ class IntroHidingFragment : Fragment() {
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.info_text: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.info_text)
+private val androidx.fragment.app.Fragment.info_text: android.widget.TextView get() = requireView().findViewById(com.securefilemanager.app.R.id.info_text)
+private val android.app.Dialog.info_text: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.info_text)

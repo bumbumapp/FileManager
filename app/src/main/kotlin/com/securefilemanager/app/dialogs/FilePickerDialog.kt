@@ -17,7 +17,6 @@ import com.securefilemanager.app.extensions.*
 import com.securefilemanager.app.helpers.*
 import com.securefilemanager.app.models.FileDirItem
 import com.securefilemanager.app.views.Breadcrumbs
-import kotlinx.android.synthetic.main.dialog_filepicker.view.*
 import java.io.File
 import java.util.*
 
@@ -178,7 +177,7 @@ class FilePickerDialog(
         }
 
         val sortedItems = items.sortedWith(compareBy({ !it.isDirectory }, {
-            it.name.toLowerCase(
+            it.name.lowercase(
                 Locale.getDefault()
             )
         }))
@@ -334,3 +333,16 @@ class FilePickerDialog(
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.fabs_holder: android.widget.LinearLayout get() = findViewById(com.securefilemanager.app.R.id.fabs_holder)
+private val android.view.View.filepicker_breadcrumbs: com.securefilemanager.app.views.Breadcrumbs get() = findViewById(com.securefilemanager.app.R.id.filepicker_breadcrumbs)
+private val android.view.View.filepicker_fab: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.filepicker_fab)
+private val android.view.View.filepicker_fab_show_favorites: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.filepicker_fab_show_favorites)
+private val android.view.View.filepicker_fab_show_hidden: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.filepicker_fab_show_hidden)
+private val android.view.View.filepicker_fastscroller: com.securefilemanager.app.views.FastScroller get() = findViewById(com.securefilemanager.app.R.id.filepicker_fastscroller)
+private val android.view.View.filepicker_favorites_holder: android.widget.RelativeLayout get() = findViewById(com.securefilemanager.app.R.id.filepicker_favorites_holder)
+private val android.view.View.filepicker_favorites_label: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.filepicker_favorites_label)
+private val android.view.View.filepicker_favorites_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.filepicker_favorites_list)
+private val android.view.View.filepicker_files_holder: android.widget.RelativeLayout get() = findViewById(com.securefilemanager.app.R.id.filepicker_files_holder)
+private val android.view.View.filepicker_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.filepicker_list)

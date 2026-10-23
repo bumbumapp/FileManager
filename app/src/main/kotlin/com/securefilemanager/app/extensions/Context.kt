@@ -354,7 +354,7 @@ fun Context.decompressZip(path: String, destination: String? = null, password: C
     }
 
 fun Context.getVersion(): String =
-    this.packageManager.getPackageInfo(this.packageName, 0).versionName
+    this.packageManager.getPackageInfo(this.packageName, 0).versionName ?: ""
 
 fun Context.openUri(uri: String) =
     Intent(Intent.ACTION_VIEW).apply {

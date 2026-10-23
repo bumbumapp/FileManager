@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import com.securefilemanager.app.R
 import com.securefilemanager.app.dialogs.PasswordAuthenticationDialog
 import com.securefilemanager.app.extensions.*
-import kotlinx.android.synthetic.main.activity_authenticate.*
 import kotlin.properties.Delegates
 
 
@@ -128,3 +127,11 @@ class AuthenticationActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.authenticate_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.authenticate_button)
+private val androidx.fragment.app.Fragment.authenticate_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = requireView().findViewById(com.securefilemanager.app.R.id.authenticate_button)
+private val android.app.Dialog.authenticate_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.authenticate_button)
+private val android.app.Activity.authenticate_coordinator_layout: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.securefilemanager.app.R.id.authenticate_coordinator_layout)
+private val androidx.fragment.app.Fragment.authenticate_coordinator_layout: androidx.coordinatorlayout.widget.CoordinatorLayout get() = requireView().findViewById(com.securefilemanager.app.R.id.authenticate_coordinator_layout)
+private val android.app.Dialog.authenticate_coordinator_layout: androidx.coordinatorlayout.widget.CoordinatorLayout get() = findViewById(com.securefilemanager.app.R.id.authenticate_coordinator_layout)

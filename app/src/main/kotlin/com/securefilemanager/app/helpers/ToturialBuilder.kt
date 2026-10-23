@@ -11,7 +11,6 @@ import com.getkeepsafe.taptargetview.TapTargetSequence
 import com.securefilemanager.app.R
 import com.securefilemanager.app.extensions.getDrawableById
 import com.securefilemanager.app.extensions.privateField
-import kotlinx.android.synthetic.main.fragment_items.*
 import java.util.*
 
 class TapTargetTutorial(activity: AppCompatActivity) {
@@ -171,3 +170,11 @@ class TapTargetTutorial(activity: AppCompatActivity) {
             .id(id)
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors (views of ItemsFragment).
+private val android.app.Activity.items_list: com.securefilemanager.app.views.MyRecyclerView
+    get() = findViewById(R.id.items_list)
+private val android.app.Activity.breadcrumbs: com.securefilemanager.app.views.Breadcrumbs
+    get() = findViewById(R.id.breadcrumbs)

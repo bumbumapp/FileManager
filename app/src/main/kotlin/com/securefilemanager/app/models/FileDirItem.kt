@@ -33,7 +33,7 @@ open class FileDirItem(
             var result: Int
             when {
                 sorting and SORT_BY_NAME != 0 -> result =
-                    name.toLowerCase(default).compareTo(other.name.toLowerCase(default))
+                    name.lowercase(default).compareTo(other.name.lowercase(default))
                 sorting and SORT_BY_SIZE != 0 -> result = when {
                     size == other.size -> 0
                     size > other.size -> 1
@@ -48,8 +48,8 @@ open class FileDirItem(
                 }
                 else -> {
                     result =
-                        getExtension().toLowerCase(default)
-                            .compareTo(other.getExtension().toLowerCase(default))
+                        getExtension().lowercase(default)
+                            .compareTo(other.getExtension().lowercase(default))
                 }
             }
 
@@ -70,7 +70,7 @@ open class FileDirItem(
                 dateFormat,
                 timeFormat
             )
-            sorting and SORT_BY_EXTENSION != 0 -> getExtension().toLowerCase(Locale.getDefault())
+            sorting and SORT_BY_EXTENSION != 0 -> getExtension().lowercase(Locale.getDefault())
             else -> name
         }
 

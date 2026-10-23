@@ -9,7 +9,6 @@ import com.securefilemanager.app.extensions.config
 import com.securefilemanager.app.extensions.standardizePath
 import com.securefilemanager.app.interfaces.RefreshRecyclerViewListener
 import com.securefilemanager.app.views.MyRecyclerView
-import kotlinx.android.synthetic.main.item_manage_favorite.view.*
 import java.util.*
 
 class ManageFavoritesAdapter(
@@ -106,3 +105,7 @@ class ManageFavoritesAdapter(
 
     private fun getItemWithKey(key: Int): String? = favorites.firstOrNull { it.hashCode() == key }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.manage_favorite_holder: android.widget.RelativeLayout get() = findViewById(com.securefilemanager.app.R.id.manage_favorite_holder)
+private val android.view.View.manage_favorite_title: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.manage_favorite_title)

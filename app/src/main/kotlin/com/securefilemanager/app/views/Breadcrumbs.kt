@@ -11,7 +11,6 @@ import com.securefilemanager.app.extensions.getDrawableById
 import com.securefilemanager.app.extensions.humanizePath
 import com.securefilemanager.app.extensions.onGlobalLayout
 import com.securefilemanager.app.models.FileDirItem
-import kotlinx.android.synthetic.main.breadcrumb_item.view.*
 
 class Breadcrumbs(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs),
     View.OnClickListener {
@@ -162,3 +161,6 @@ class Breadcrumbs(context: Context, attrs: AttributeSet) : LinearLayout(context,
         fun breadcrumbClicked(id: Int)
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.breadcrumb_text: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.breadcrumb_text)

@@ -124,7 +124,7 @@ abstract class ItemAbstractAdapter(
     private fun getPlaceholder(fileName: String): Drawable {
         return this.fileDrawables
             .getOrElse(fileName.substringAfterLast(".")
-                .toLowerCase(
+                .lowercase(
                     Locale.getDefault()
                 ), { this.fileDrawable!! })
     }

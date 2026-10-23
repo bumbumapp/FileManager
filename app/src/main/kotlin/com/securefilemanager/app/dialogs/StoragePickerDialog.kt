@@ -10,7 +10,6 @@ import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.*
 import com.securefilemanager.app.helpers.HideAction
 import com.securefilemanager.app.helpers.isUnhide
-import kotlinx.android.synthetic.main.dialog_radio_group.view.*
 
 /**
  * A dialog for choosing between internal, root, SD card (optional) storage
@@ -109,3 +108,6 @@ class StoragePickerDialog(
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.dialog_radio_group: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.dialog_radio_group)

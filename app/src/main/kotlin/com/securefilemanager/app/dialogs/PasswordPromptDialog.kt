@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.securefilemanager.app.R
 import com.securefilemanager.app.extensions.setupDialogStuff
 import com.securefilemanager.app.extensions.value
-import kotlinx.android.synthetic.main.dialog_password_authentication.view.*
 
 class PasswordPromptDialog(
     val activity: AppCompatActivity,
@@ -38,3 +37,6 @@ class PasswordPromptDialog(
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.password: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password)

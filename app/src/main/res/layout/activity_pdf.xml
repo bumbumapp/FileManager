@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".PdfActivity">
 
-    <com.github.barteksc.pdfviewer.PDFView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pdfView"
         android:layout_margin="3dp"
         android:layout_width="match_parent"

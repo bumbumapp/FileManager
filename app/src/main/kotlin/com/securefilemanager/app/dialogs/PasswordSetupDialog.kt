@@ -9,8 +9,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.securefilemanager.app.R
 import com.securefilemanager.app.extensions.*
 import com.securefilemanager.app.helpers.crypto.Password
-import kotlinx.android.synthetic.main.dialog_password_authentication.*
-import kotlinx.android.synthetic.main.dialog_password_setup.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -92,3 +90,16 @@ class PasswordSetupDialog(
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.password: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password)
+private val androidx.fragment.app.Fragment.password: com.google.android.material.textfield.TextInputEditText get() = requireView().findViewById(com.securefilemanager.app.R.id.password)
+private val android.app.Dialog.password: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password)
+private val android.app.Activity.progressbar: android.widget.ProgressBar get() = findViewById(com.securefilemanager.app.R.id.progressbar)
+private val androidx.fragment.app.Fragment.progressbar: android.widget.ProgressBar get() = requireView().findViewById(com.securefilemanager.app.R.id.progressbar)
+private val android.app.Dialog.progressbar: android.widget.ProgressBar get() = findViewById(com.securefilemanager.app.R.id.progressbar)
+private val android.view.View.password: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password)
+private val android.view.View.password_again: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password_again)
+private val android.view.View.password_again_layout: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.securefilemanager.app.R.id.password_again_layout)
+private val android.view.View.password_layout: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.securefilemanager.app.R.id.password_layout)
+private val android.view.View.progressbar: android.widget.ProgressBar get() = findViewById(com.securefilemanager.app.R.id.progressbar)

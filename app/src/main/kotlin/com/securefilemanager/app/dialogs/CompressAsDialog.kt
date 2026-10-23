@@ -7,7 +7,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.*
-import kotlinx.android.synthetic.main.dialog_compress_as.view.*
 
 class CompressAsDialog(
     val activity: BaseAbstractActivity,
@@ -95,3 +94,12 @@ class CompressAsDialog(
         this.passwordAgainLayout.error = null
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.file_name: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.file_name)
+private val android.view.View.file_path: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.file_path)
+private val android.view.View.password: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password)
+private val android.view.View.password_again: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.password_again)
+private val android.view.View.password_again_layout: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.securefilemanager.app.R.id.password_again_layout)
+private val android.view.View.password_layout: com.google.android.material.textfield.TextInputLayout get() = findViewById(com.securefilemanager.app.R.id.password_layout)
+private val android.view.View.password_switch: android.widget.Switch get() = findViewById(com.securefilemanager.app.R.id.password_switch)

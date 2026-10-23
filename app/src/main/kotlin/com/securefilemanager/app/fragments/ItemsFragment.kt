@@ -31,7 +31,6 @@ import com.securefilemanager.app.models.ListItem
 import com.securefilemanager.app.services.ZipManagerService
 import com.securefilemanager.app.views.Breadcrumbs
 import com.securefilemanager.app.views.MyLinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_items.view.*
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -604,3 +603,15 @@ class ItemsFragment : Fragment(), ItemOperationsListener, Breadcrumbs.Breadcrumb
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.breadcrumbs: com.securefilemanager.app.views.Breadcrumbs get() = findViewById(com.securefilemanager.app.R.id.breadcrumbs)
+private val android.view.View.camera_fab: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.camera_fab)
+private val android.view.View.items_fastscroller: com.securefilemanager.app.views.FastScroller get() = findViewById(com.securefilemanager.app.R.id.items_fastscroller)
+private val android.view.View.items_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.items_list)
+private val android.view.View.items_placeholder: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.items_placeholder)
+private val android.view.View.items_placeholder_2: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.items_placeholder_2)
+private val android.view.View.items_swipe_refresh: androidx.swiperefreshlayout.widget.SwipeRefreshLayout get() = findViewById(com.securefilemanager.app.R.id.items_swipe_refresh)
+private val android.view.View.new_fab: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.new_fab)
+private val android.view.View.photo_fab: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.photo_fab)
+private val android.view.View.show_fab: com.google.android.material.floatingactionbutton.FloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.show_fab)

@@ -7,7 +7,6 @@ import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.config
 import com.securefilemanager.app.extensions.setupDialogStuff
 import com.securefilemanager.app.helpers.*
-import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(
     val activity: BaseAbstractActivity,
@@ -76,3 +75,14 @@ class ChangeSortingDialog(
         callback()
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.sorting_dialog_radio_ascending: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_ascending)
+private val android.view.View.sorting_dialog_radio_descending: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_descending)
+private val android.view.View.sorting_dialog_radio_extension: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_extension)
+private val android.view.View.sorting_dialog_radio_last_modified: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_last_modified)
+private val android.view.View.sorting_dialog_radio_name: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_name)
+private val android.view.View.sorting_dialog_radio_order: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_order)
+private val android.view.View.sorting_dialog_radio_size: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_size)
+private val android.view.View.sorting_dialog_radio_sorting: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_radio_sorting)
+private val android.view.View.sorting_dialog_use_for_this_folder: com.google.android.material.checkbox.MaterialCheckBox get() = findViewById(com.securefilemanager.app.R.id.sorting_dialog_use_for_this_folder)

@@ -15,8 +15,6 @@ import com.securefilemanager.app.helpers.ensureBackgroundThread
 import com.securefilemanager.app.helpers.sumByInt
 import com.securefilemanager.app.helpers.sumByLong
 import com.securefilemanager.app.models.FileDirItem
-import kotlinx.android.synthetic.main.dialog_properties.view.*
-import kotlinx.android.synthetic.main.property_item.view.*
 import java.io.File
 import java.util.*
 
@@ -305,3 +303,8 @@ class PropertiesDialog() {
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.properties_holder: android.widget.LinearLayout get() = findViewById(com.securefilemanager.app.R.id.properties_holder)
+private val android.view.View.property_label: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.property_label)
+private val android.view.View.property_value: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.property_value)

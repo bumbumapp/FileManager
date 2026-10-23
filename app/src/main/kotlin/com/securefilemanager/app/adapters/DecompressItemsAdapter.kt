@@ -9,7 +9,6 @@ import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.models.FileDirItem
 import com.securefilemanager.app.models.ListItem
 import com.securefilemanager.app.views.MyRecyclerView
-import kotlinx.android.synthetic.main.item_list_file_dir.view.*
 
 class DecompressItemsAdapter(
     activity: BaseAbstractActivity,
@@ -48,3 +47,7 @@ class DecompressItemsAdapter(
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.item_icon: android.widget.ImageView get() = findViewById(com.securefilemanager.app.R.id.item_icon)
+private val android.view.View.item_name: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.item_name)

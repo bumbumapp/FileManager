@@ -32,7 +32,7 @@ fun Context.getSDCardPath(): String {
     }
 
     var sdCardPath =
-        directories.firstOrNull { !physicalPaths.contains(it.toLowerCase(Locale.getDefault())) }
+        directories.firstOrNull { !physicalPaths.contains(it.lowercase(Locale.getDefault())) }
             ?: ""
 
     // on some devices no method retrieved any SD card path, so test if its not sdcard1 by any chance. It happened on an Android 5.1

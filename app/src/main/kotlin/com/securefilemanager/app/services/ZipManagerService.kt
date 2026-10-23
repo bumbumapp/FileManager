@@ -40,7 +40,10 @@ class ZipManagerService : Service() {
         this.mNotificationManager.createNotificationChannel(this.getNotificationChannel())
         this.mNotification = this.getNotificationBuilder()
 
-        this.startForeground(this.mNotificationId, this.mNotification.build())
+        androidx.core.app.ServiceCompat.startForeground(
+            this, this.mNotificationId, this.mNotification.build(),
+            android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC,
+        )
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -257,7 +260,7 @@ class ZipManagerService : Service() {
             }
 
         val actionIntent: PendingIntent =
-            PendingIntent.getService(this, STOP_REQUEST_CODE, broadcastIntent, 0)
+            PendingIntent.getService(this, STOP_REQUEST_CODE, broadcastIntent, PendingIntent.FLAG_IMMUTABLE)
 
         return NotificationCompat.Action.Builder(
             R.drawable.ic_stop_vector,

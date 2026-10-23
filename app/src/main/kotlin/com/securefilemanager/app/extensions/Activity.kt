@@ -23,7 +23,6 @@ import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.dialogs.WritePermissionDialog
 import com.securefilemanager.app.helpers.*
 import com.securefilemanager.app.models.FileDirItem
-import kotlinx.android.synthetic.main.dialog_title.view.*
 import java.io.File
 import java.io.FileNotFoundException
 import java.util.*
@@ -564,3 +563,6 @@ fun BaseAbstractActivity.isShowingSAFDialog(path: String): Boolean {
 }
 
 fun Activity.setTheme() = setDefaultNightMode(this.config.theme)
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.dialog_title_textview: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.dialog_title_textview)

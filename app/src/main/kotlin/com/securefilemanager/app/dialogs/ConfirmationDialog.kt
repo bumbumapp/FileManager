@@ -5,7 +5,6 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.securefilemanager.app.R
 import com.securefilemanager.app.extensions.setupDialogStuff
-import kotlinx.android.synthetic.main.dialog_message.view.*
 
 /**
  * A simple dialog without any view, just a messageId, a positive button and optionally a negative button
@@ -48,3 +47,6 @@ class ConfirmationDialog(
         callback()
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.message: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.message)

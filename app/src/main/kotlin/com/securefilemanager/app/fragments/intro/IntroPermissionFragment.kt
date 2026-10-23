@@ -14,7 +14,6 @@ import com.securefilemanager.app.extensions.toastLong
 import com.securefilemanager.app.helpers.GENERIC_PERM_HANDLER
 import com.securefilemanager.app.helpers.PERMISSION_WRITE_STORAGE
 import com.securefilemanager.app.helpers.getPermissionString
-import kotlinx.android.synthetic.main.fragment_intro_permission.*
 
 class IntroPermissionFragment : Fragment(), SlidePolicy {
 
@@ -101,3 +100,17 @@ class IntroPermissionFragment : Fragment(), SlidePolicy {
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.enable_permission_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.enable_permission_button)
+private val androidx.fragment.app.Fragment.enable_permission_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = requireView().findViewById(com.securefilemanager.app.R.id.enable_permission_button)
+private val android.app.Dialog.enable_permission_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.enable_permission_button)
+private val android.app.Activity.permission_enabled_text: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.permission_enabled_text)
+private val androidx.fragment.app.Fragment.permission_enabled_text: android.widget.TextView get() = requireView().findViewById(com.securefilemanager.app.R.id.permission_enabled_text)
+private val android.app.Dialog.permission_enabled_text: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.permission_enabled_text)
+private val android.app.Activity.summary2_text: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.summary2_text)
+private val androidx.fragment.app.Fragment.summary2_text: android.widget.TextView get() = requireView().findViewById(com.securefilemanager.app.R.id.summary2_text)
+private val android.app.Dialog.summary2_text: android.widget.TextView get() = findViewById(com.securefilemanager.app.R.id.summary2_text)
+private val android.app.Activity.system_settings_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.system_settings_button)
+private val androidx.fragment.app.Fragment.system_settings_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = requireView().findViewById(com.securefilemanager.app.R.id.system_settings_button)
+private val android.app.Dialog.system_settings_button: com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton get() = findViewById(com.securefilemanager.app.R.id.system_settings_button)

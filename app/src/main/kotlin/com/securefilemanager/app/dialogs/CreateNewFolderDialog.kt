@@ -5,7 +5,6 @@ import androidx.appcompat.app.AlertDialog
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.*
-import kotlinx.android.synthetic.main.dialog_create_new_folder.view.*
 import java.io.File
 
 class CreateNewFolderDialog(
@@ -73,3 +72,7 @@ class CreateNewFolderDialog(
         alertDialog.dismiss()
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.folder_name: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.folder_name)
+private val android.view.View.folder_path: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.folder_path)

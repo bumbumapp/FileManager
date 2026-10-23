@@ -5,7 +5,6 @@ import androidx.appcompat.app.AlertDialog
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.*
-import kotlinx.android.synthetic.main.dialog_rename_item.view.*
 import java.util.*
 
 class RenameItemDialog(
@@ -95,3 +94,9 @@ class RenameItemDialog(
             }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.rename_item_extension: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.rename_item_extension)
+private val android.view.View.rename_item_extension_label: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.rename_item_extension_label)
+private val android.view.View.rename_item_name: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.rename_item_name)
+private val android.view.View.rename_item_path: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.rename_item_path)

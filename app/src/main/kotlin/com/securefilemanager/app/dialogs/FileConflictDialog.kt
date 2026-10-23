@@ -13,7 +13,6 @@ import com.securefilemanager.app.helpers.CONFLICT_MERGE
 import com.securefilemanager.app.helpers.CONFLICT_OVERWRITE
 import com.securefilemanager.app.helpers.CONFLICT_SKIP
 import com.securefilemanager.app.models.FileDirItem
-import kotlinx.android.synthetic.main.dialog_file_conflict.view.*
 
 class FileConflictDialog(
     val activity: Activity,
@@ -66,3 +65,12 @@ class FileConflictDialog(
         callback(resolution, applyToAll)
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.conflict_dialog_apply_to_all: com.google.android.material.checkbox.MaterialCheckBox get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_apply_to_all)
+private val android.view.View.conflict_dialog_radio_group: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_radio_group)
+private val android.view.View.conflict_dialog_radio_keep_both: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_radio_keep_both)
+private val android.view.View.conflict_dialog_radio_merge: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_radio_merge)
+private val android.view.View.conflict_dialog_radio_overwrite: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_radio_overwrite)
+private val android.view.View.conflict_dialog_radio_skip: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_radio_skip)
+private val android.view.View.conflict_dialog_title: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.conflict_dialog_title)

@@ -128,20 +128,20 @@ open class Config(val context: Context) {
         if (path.isEmpty()) {
             sorting = value
         } else {
-            prefs.edit().putInt(SORT_FOLDER_PREFIX + path.toLowerCase(Locale.getDefault()), value)
+            prefs.edit().putInt(SORT_FOLDER_PREFIX + path.lowercase(Locale.getDefault()), value)
                 .apply()
         }
     }
 
     fun getFolderSorting(path: String) =
-        prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(Locale.getDefault()), sorting)
+        prefs.getInt(SORT_FOLDER_PREFIX + path.lowercase(Locale.getDefault()), sorting)
 
     fun removeCustomSorting(path: String) {
-        prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase(Locale.getDefault())).apply()
+        prefs.edit().remove(SORT_FOLDER_PREFIX + path.lowercase(Locale.getDefault())).apply()
     }
 
     fun hasCustomSorting(path: String) =
-        prefs.contains(SORT_FOLDER_PREFIX + path.toLowerCase(Locale.getDefault()))
+        prefs.contains(SORT_FOLDER_PREFIX + path.lowercase(Locale.getDefault()))
 
     var use24HourFormat: Boolean
         get() = prefs.getBoolean(
@@ -163,7 +163,7 @@ open class Config(val context: Context) {
     private fun getDefaultDateFormat(): String {
         val format = DateFormat.getDateFormat(context)
         val pattern = (format as SimpleDateFormat).toLocalizedPattern()
-        return when (pattern.toLowerCase(Locale.getDefault()).replace(" ", "")) {
+        return when (pattern.lowercase(Locale.getDefault()).replace(" ", "")) {
             "dd/mm/y" -> DATE_FORMAT_TWO
             "mm/dd/y" -> DATE_FORMAT_THREE
             "y-mm-dd" -> DATE_FORMAT_FOUR

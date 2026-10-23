@@ -5,8 +5,6 @@ import androidx.appcompat.app.AlertDialog
 import com.securefilemanager.app.R
 import com.securefilemanager.app.activities.BaseAbstractActivity
 import com.securefilemanager.app.extensions.*
-import kotlinx.android.synthetic.main.dialog_rename_items.*
-import kotlinx.android.synthetic.main.dialog_rename_items.view.*
 import java.util.*
 
 class RenameItemsDialog(
@@ -103,3 +101,11 @@ class RenameItemsDialog(
             }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.rename_items_radio_append: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.rename_items_radio_append)
+private val androidx.fragment.app.Fragment.rename_items_radio_append: com.google.android.material.radiobutton.MaterialRadioButton get() = requireView().findViewById(com.securefilemanager.app.R.id.rename_items_radio_append)
+private val android.app.Dialog.rename_items_radio_append: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.rename_items_radio_append)
+private val android.view.View.rename_items_radio_append: com.google.android.material.radiobutton.MaterialRadioButton get() = findViewById(com.securefilemanager.app.R.id.rename_items_radio_append)
+private val android.view.View.rename_items_radio_group: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.rename_items_radio_group)
+private val android.view.View.rename_items_value: com.google.android.material.textfield.TextInputEditText get() = findViewById(com.securefilemanager.app.R.id.rename_items_value)

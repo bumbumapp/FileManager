@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.securefilemanager.app">
+   >
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,6 +20,8 @@
         android:required="false" />
 
     <application
+        android:name=".FileManagerApp"
+        android:enableOnBackInvokedCallback="false"
         android:allowBackup="false"
         android:allowClearUserData="false"
         android:description="@string/description"
@@ -39,7 +44,9 @@
             android:label="@string/about"
             android:theme="@style/AboutTheme"
             android:exported="false" />
-        <activity android:name=".activities.MainActivity">
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.default_searchable"
                 android:resource="@xml/searchable" />
@@ -67,6 +74,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:exported="true"
             android:name=".activities.SaveAsActivity"
             android:label="@string/save_as">
             <intent-filter>
@@ -95,6 +103,7 @@
             android:name=".activities.DecompressActivity"
             android:label="@string/decompress" />
         <activity
+            android:exported="true"
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity"
@@ -126,6 +135,7 @@
 
         <service
             android:name=".services.ZipManagerService"
+            android:foregroundServiceType="dataSync"
             android:description="@string/compression_service_description"
             android:directBootAware="false"
             android:enabled="true"
@@ -145,7 +155,11 @@
             android:enabled="true"
             android:exported="false"
             android:icon="@drawable/ic_launcher_foreground"
-            android:label="UnlockAppService">
+            android:label="UnlockAppService"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Ongoing notification with a Lock action while the user-protected app is unlocked" />
             <intent-filter>
                 <action android:name=".helpers.UnlockAppService.ACTION_LOCK" />
                 <action android:name=".helpers.UnlockAppService.ACTION_STOP" />

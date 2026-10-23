@@ -10,7 +10,6 @@ import com.securefilemanager.app.extensions.getFilenameFromPath
 import com.securefilemanager.app.extensions.getParentPath
 import com.securefilemanager.app.extensions.showErrorToast
 import com.securefilemanager.app.models.ListItem
-import kotlinx.android.synthetic.main.activity_decompress.*
 import net.lingala.zip4j.ZipFile
 
 class DecompressActivity : BaseAbstractActivity() {
@@ -106,3 +105,8 @@ class DecompressActivity : BaseAbstractActivity() {
         const val EXTRA_PATH = "EXTRA_PATH"
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.decompress_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.decompress_list)
+private val androidx.fragment.app.Fragment.decompress_list: com.securefilemanager.app.views.MyRecyclerView get() = requireView().findViewById(com.securefilemanager.app.R.id.decompress_list)
+private val android.app.Dialog.decompress_list: com.securefilemanager.app.views.MyRecyclerView get() = findViewById(com.securefilemanager.app.R.id.decompress_list)

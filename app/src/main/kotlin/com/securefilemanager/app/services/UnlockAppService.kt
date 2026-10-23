@@ -30,7 +30,10 @@ class UnlockAppService : Service() {
         notificationManager.createNotificationChannel(this.getNotificationChannel())
         val notification: NotificationCompat.Builder = this.getNotificationBuilder()
 
-        this.startForeground(this.mNotificationId, notification.build())
+        androidx.core.app.ServiceCompat.startForeground(
+            this, this.mNotificationId, notification.build(),
+            if (android.os.Build.VERSION.SDK_INT >= 34) android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE else 0,
+        )
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -64,7 +67,7 @@ class UnlockAppService : Service() {
             Intent(this, this::class.java).apply {
                 action = ACTION_LOCK
             },
-            0
+            PendingIntent.FLAG_IMMUTABLE
         )
 
     private fun getStopAction(): NotificationCompat.Action? =

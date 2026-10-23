@@ -7,7 +7,6 @@ import androidx.appcompat.app.AlertDialog
 import com.securefilemanager.app.R
 import com.securefilemanager.app.extensions.*
 import com.securefilemanager.app.helpers.htmlText
-import kotlinx.android.synthetic.main.dialog_delete_app_data.view.*
 
 class DeleteAppDataDialog(activity: Activity) {
 
@@ -57,3 +56,6 @@ class DeleteAppDataDialog(activity: Activity) {
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.message: com.google.android.material.textview.MaterialTextView get() = findViewById(com.securefilemanager.app.R.id.message)

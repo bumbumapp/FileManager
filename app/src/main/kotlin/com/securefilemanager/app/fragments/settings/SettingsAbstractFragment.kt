@@ -54,7 +54,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         titleId: Int,
         preferences: List<Preference> = listOf()
     ): PreferenceCategory =
-        PreferenceCategory(context).apply {
+        PreferenceCategory(requireContext()).apply {
             screen.addPreference(this)
             title = getString(titleId)
             preferences.forEach {
@@ -81,7 +81,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         this.initCategory(screen, R.string.security, preferences)
 
     protected fun initTheme(): ListPreference =
-        ListPreference(context).apply {
+        ListPreference(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             val theme = config.theme
@@ -103,7 +103,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initFavorites(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             key = SETTINGS_MANAGE_FAVORITES
             title = getString(R.string.manage_favorites)
@@ -115,7 +115,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initDateTimeFormat(): ListPreference =
-        ListPreference(context).apply {
+        ListPreference(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             val dateFormat = config.dateFormat
@@ -134,7 +134,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initChangeHourFormat(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             key = SETTINGS_CHANGE_HOUR_FORMAT
@@ -150,10 +150,10 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initFontSize(): ListPreference =
-        ListPreference(context).apply {
+        ListPreference(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
-            val fontSizes = fontSizes(context)
+            val fontSizes = fontSizes(requireContext())
             val fontSizesStrings = fontSizes.keys.toTypedArray()
             val fontSize = context.getFontSizeText()
             key = SETTINGS_FONT_SIZE
@@ -171,7 +171,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initAppSystemSettings(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             key = SETTINGS_SYSTEM_SETTINGS
             title = getString(R.string.app_system_settings)
@@ -183,7 +183,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initKeepLastModified(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             key = SETTINGS_KEEP_LAST_MODIFIED
@@ -199,7 +199,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initKeepAfterEncryption(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             key = SETTINGS_KEEP_AFTER_ENCRYPTION_OPERATION
@@ -225,7 +225,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     protected fun initBlockScreenshots(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             key = SETTINGS_DISABLE_SCREENSHOTS
@@ -263,7 +263,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     protected fun initShowThumbnailPreview(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             key = SETTINGS_SHOW_THUMBNAIL_PREVIEW
@@ -283,7 +283,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initMediaThumbnailClear(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             key = SETTINGS_SHOW_THUMBNAIL_PREVIEW_CLEAR
             title = getString(R.string.media_thumbnail_clear_title)
@@ -295,7 +295,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
         }
 
     protected fun initAppDataClear(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             key = SETTINGS_APP_DATA_CLEAR
             title = getString(R.string.app_data_clear_title)
@@ -338,7 +338,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     private fun initAppLock(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             val isAppLock = config.isAppLock
@@ -383,7 +383,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     private fun initAppPassword(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             key = SETTINGS_APP_PASSWORD
@@ -429,7 +429,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     private fun initUseBiometric(): SwitchPreferenceCompat =
-        SwitchPreferenceCompat(context).apply {
+        SwitchPreferenceCompat(requireContext()).apply {
             val activity = requireActivity()
             val config = activity.config
             val useBiometricAuthentication = config.useBiometricAuthentication
@@ -461,7 +461,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     private fun initOpenBiometricSettings(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             key = SETTINGS_OPEN_BIOMETRIC_SETTINGS
             icon = activity.getDrawableById(R.drawable.ic_error_outline_vector)
@@ -479,7 +479,7 @@ abstract class SettingsAbstractFragment : PreferenceFragmentCompat() {
     }
 
     private fun initAppLockInfo(): Preference =
-        Preference(context).apply {
+        Preference(requireContext()).apply {
             val activity = requireActivity()
             key = SETTINGS_APP_LOCK_INFO
             icon = activity.getDrawableById(R.drawable.ic_info_vector)

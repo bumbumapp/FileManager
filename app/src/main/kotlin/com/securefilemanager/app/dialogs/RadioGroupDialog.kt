@@ -10,7 +10,6 @@ import com.securefilemanager.app.R
 import com.securefilemanager.app.extensions.onGlobalLayout
 import com.securefilemanager.app.extensions.setupDialogStuff
 import com.securefilemanager.app.models.RadioItem
-import kotlinx.android.synthetic.main.dialog_radio_group.view.*
 import java.util.*
 
 class RadioGroupDialog(
@@ -85,3 +84,7 @@ class RadioGroupDialog(
         }
     }
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.dialog_radio_group: android.widget.RadioGroup get() = findViewById(com.securefilemanager.app.R.id.dialog_radio_group)
+private val android.view.View.dialog_radio_holder: android.widget.ScrollView get() = findViewById(com.securefilemanager.app.R.id.dialog_radio_holder)

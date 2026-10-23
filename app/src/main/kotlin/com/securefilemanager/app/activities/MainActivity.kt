@@ -23,8 +23,6 @@ import com.securefilemanager.app.helpers.PERMISSION_WRITE_STORAGE
 import com.securefilemanager.app.helpers.TapTargetTutorial
 import com.securefilemanager.app.helpers.ensureBackgroundThread
 import com.securefilemanager.app.models.RadioItem
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_items.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -51,6 +49,11 @@ class MainActivity : BaseAbstractActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // Android 13+: progress notifications of the zip service need the runtime permission.
+        if (android.os.Build.VERSION.SDK_INT >= 33 && androidx.core.content.ContextCompat.checkSelfPermission(
+                this, android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            androidx.core.app.ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 4711)
+        }
         config.internalStoragePath = getInternalStoragePath()
         updateSDCardPath()
 
@@ -347,3 +350,8 @@ class MainActivity : BaseAbstractActivity() {
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.view.View.breadcrumbs: com.securefilemanager.app.views.Breadcrumbs get() = findViewById(com.securefilemanager.app.R.id.breadcrumbs)
+private val MainActivity.fragment_holder: androidx.fragment.app.Fragment
+    get() = supportFragmentManager.findFragmentById(com.securefilemanager.app.R.id.fragment_holder)!!

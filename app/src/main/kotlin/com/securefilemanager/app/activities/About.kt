@@ -5,8 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.securefilemanager.app.R
-import kotlinx.android.synthetic.main.activity_about.about_layout_source
-import kotlinx.android.synthetic.main.activity_about.about_layout_license
 
 // This activity is inspired by the andOTP - https://github.com/andOTP/andOTP
 class About : BaseAbstractActivity() {
@@ -34,3 +32,11 @@ class About : BaseAbstractActivity() {
     }
 
 }
+
+// Replaces the removed kotlin-android-extensions synthetic view accessors.
+private val android.app.Activity.about_layout_license: android.widget.LinearLayout get() = findViewById(com.securefilemanager.app.R.id.about_layout_license)
+private val androidx.fragment.app.Fragment.about_layout_license: android.widget.LinearLayout get() = requireView().findViewById(com.securefilemanager.app.R.id.about_layout_license)
+private val android.app.Dialog.about_layout_license: android.widget.LinearLayout get() = findViewById(com.securefilemanager.app.R.id.about_layout_license)
+private val android.app.Activity.about_layout_source: android.widget.LinearLayout get() = findViewById(com.securefilemanager.app.R.id.about_layout_source)
+private val androidx.fragment.app.Fragment.about_layout_source: android.widget.LinearLayout get() = requireView().findViewById(com.securefilemanager.app.R.id.about_layout_source)
+private val android.app.Dialog.about_layout_source: android.widget.LinearLayout get() = findViewById(com.securefilemanager.app.R.id.about_layout_source)

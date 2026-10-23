@@ -791,7 +791,7 @@ fun String.getMimeType(): String {
         put("z", "application/x-compress")
         put("zip", "application/zip")
     }
-    return typesMap[getFilenameExtension().toLowerCase(Locale.getDefault())] ?: ""
+    return typesMap[getFilenameExtension().lowercase(Locale.getDefault())] ?: ""
 }
 
 fun String.isZipFile() = endsWith(".zip", true)
