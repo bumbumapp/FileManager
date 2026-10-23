@@ -54,3 +54,7 @@
 
 # Keep the BuildConfig
 -keep class com.securefilemanager.app.BuildConfig { *; }
+
+# Tink (security-crypto) references compile-only annotations.
+-dontwarn javax.annotation.Nullable
+-dontwarn javax.annotation.concurrent.GuardedBy
