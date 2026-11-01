@@ -9,6 +9,15 @@
         android:id="@+id/fragment_holder"
         android:name="com.securefilemanager.app.fragments.ItemsFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/ad_container" />
+
+    <!-- Banner (Huawei AppGallery build only); hidden until an ad is loaded. -->
+    <FrameLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

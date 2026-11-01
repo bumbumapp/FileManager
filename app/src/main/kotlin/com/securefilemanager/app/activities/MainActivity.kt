@@ -1,6 +1,7 @@
 package com.securefilemanager.app.activities
 
 import android.app.Activity
+import com.securefilemanager.app.ads.AdsManager
 import android.app.SearchManager
 import android.content.ClipData
 import android.content.Context
@@ -61,6 +62,11 @@ class MainActivity : BaseAbstractActivity() {
             isGetRingtonePicker = intent.action == RingtoneManager.ACTION_RINGTONE_PICKER
             isGetContentIntent = intent.action == Intent.ACTION_GET_CONTENT
             isPickMultipleIntent = intent.getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
+        }
+        // Huawei AppGallery build: banner under the file list (no-op in the Play build).
+        AdsManager.get(this).apply {
+            init(this@MainActivity)
+            loadBanner(this@MainActivity, findViewById(R.id.ad_container))
         }
     }
 

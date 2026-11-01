@@ -8,3 +8,4 @@
 .externalNativeBuild
 .cxx
 secrets.properties
+ads.properties

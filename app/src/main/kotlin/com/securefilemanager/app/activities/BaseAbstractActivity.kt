@@ -1,6 +1,7 @@
 package com.securefilemanager.app.activities
 
 import android.app.Activity
+import com.securefilemanager.app.ads.AdsManager
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -68,6 +69,11 @@ abstract class BaseAbstractActivity : AppCompatActivity() {
 
             copyMoveCallback?.invoke(destinationPath, copiedAll)
             copyMoveCallback = null
+            // A finished copy/move/encrypt is a natural break: the Huawei AppGallery build may show a
+            // (capped) interstitial; nothing waits for it.
+            if (!isFinishing && !isDestroyed) {
+                AdsManager.get(this@BaseAbstractActivity).onBreakPoint(this@BaseAbstractActivity) {}
+            }
         }
 
         override fun copyFailed(encryptionAction: EncryptionAction) {

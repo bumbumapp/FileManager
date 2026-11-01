@@ -2,6 +2,18 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+
+// Huawei Ads (Petal) slot IDs for the AppGallery (hms) build; override with -PHMS_BANNER_ID=... or a
+// gitignored ads.properties. Debug builds always use Huawei's public test slots.
+def adsProps = new Properties()
+def adsFile = rootProject.file('ads.properties')
+if (adsFile.exists()) adsFile.withInputStream { adsProps.load(it) }
+def adId = { String key, String fallback -> ((project.findProperty(key) ?: adsProps.getProperty(key))?.toString()?.trim()) ?: fallback }
+def HMS_TEST_BANNER_ID = 'testw6vs28auh3'
+def HMS_TEST_INTERSTITIAL_ID = 'testb4znbuh3n2'
+def HMS_BANNER_ID = adId('HMS_BANNER_ID', 'w0rc6qmydt')
+def HMS_INTERSTITIAL_ID = adId('HMS_INTERSTITIAL_ID', 'e1fjyvnnts')
+
 android {
     namespace 'com.securefilemanager.app'
     compileSdk rootProject.compileSdkVersion
@@ -11,8 +23,8 @@ android {
         minSdk rootProject.minSdkVersion
         targetSdk rootProject.targetSdkVersion
         setProperty("archivesBaseName", "filemanager")
-        // Not on Play yet: repo versionCode 1 + 1.
-        versionCode 2
+        // AppGallery build: must exceed the live AppGallery versionCode.
+        versionCode 5
         versionName "1.1"
     }
 
@@ -35,7 +47,23 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    // play = Google Play (no ads), hms = Huawei AppGallery (Huawei Ads, no Google Mobile Services).
+    flavorDimensions = ['store']
+    productFlavors {
+        play {
+            dimension 'store'
+        }
+        hms {
+            dimension 'store'
+            resValue 'string', 'hms_banner_id', HMS_BANNER_ID
+            resValue 'string', 'hms_interstitial_id', HMS_INTERSTITIAL_ID
+            resValue 'string', 'hms_test_banner_id', HMS_TEST_BANNER_ID
+            resValue 'string', 'hms_test_interstitial_id', HMS_TEST_INTERSTITIAL_ID
+        }
+    }
+
     buildFeatures {
+        resValues true
         buildConfig true
     }
     lint {
@@ -50,6 +78,7 @@ kotlin {
 }
 
 dependencies {
+    hmsImplementation 'com.huawei.hms:ads-lite:13.4.91.301'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
