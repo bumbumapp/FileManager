@@ -115,6 +115,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activities.FileToolActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity
             android:name=".activities.FavoritesActivity"
             android:label="@string/favorites"
             android:parentActivityName=".activities.MainActivity" />

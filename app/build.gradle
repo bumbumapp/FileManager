@@ -24,8 +24,8 @@ android {
         targetSdk rootProject.targetSdkVersion
         setProperty("archivesBaseName", "filemanager")
         // AppGallery build: must exceed the live AppGallery versionCode.
-        versionCode 5
-        versionName "1.1"
+        versionCode 6
+        versionName "1.2.0"
     }
 
     buildTypes {

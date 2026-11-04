@@ -37,6 +37,18 @@
         android:title="@string/set_as_home_folder"
         app:showAsAction="never" />
     <item
+        android:id="@+id/tool_storage"
+        android:title="@string/tool_storage"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/tool_duplicates"
+        android:title="@string/tool_duplicates"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/tool_recent"
+        android:title="@string/tool_recent"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/settings"
         android:title="@string/settings"
         app:showAsAction="never" />

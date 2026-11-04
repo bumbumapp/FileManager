@@ -361,4 +361,34 @@
     <string name="app_data_clear_confirmation_3">Tap again if you are sure you want delete settings</string>
     <string name="app_data_clear_confirmation_4">Tap again to confirm app data delete</string>
 
+    <string name="tool_storage">Storage analyzer</string>
+    <string name="tool_duplicates">Find duplicate files</string>
+    <string name="tool_recent">Recent files</string>
+    <string name="tool_scanning">Scanning... %1$d files</string>
+    <string name="tool_checking">Comparing files... %1$d of %2$d</string>
+    <string name="tool_storage_summary">Used %1$s of %2$s, %3$s free</string>
+    <string name="tool_category_line">Files: %1$d, %2$s</string>
+    <string name="tool_largest_files">Largest files</string>
+    <string name="tool_tap_open">Tap to open, long press to delete</string>
+    <string name="tool_nothing_found">No files found.</string>
+    <string name="tool_no_duplicates">No duplicate files found.</string>
+    <string name="tool_days">%1$d d</string>
+    <string name="tool_recent_summary">%1$d files changed in the last %2$d days</string>
+    <string name="tool_group_title">%1$d identical files, %2$s each</string>
+    <string name="tool_duplicates_summary">%1$d groups, %2$s can be freed. Selected: %3$d (%4$s)</string>
+    <string name="tool_select_extras">Select extra copies</string>
+    <string name="tool_delete_selected">Delete selected</string>
+    <string name="tool_delete">Delete</string>
+    <string name="tool_nothing_selected">Select files to delete first.</string>
+    <string name="tool_keep_one">Keep at least one copy of every file.</string>
+    <string name="tool_delete_confirm">Delete %1$d files (%2$s)? This cannot be undone.</string>
+    <string name="tool_delete_one_confirm">Delete %1$s? This cannot be undone.</string>
+    <string name="tool_deleted">Deleted: %1$d</string>
+    <string name="tool_cat_images">Images</string>
+    <string name="tool_cat_videos">Videos</string>
+    <string name="tool_cat_audio">Audio</string>
+    <string name="tool_cat_documents">Documents</string>
+    <string name="tool_cat_archives">Archives</string>
+    <string name="tool_cat_apps">Apps</string>
+    <string name="tool_cat_other">Other</string>
 </resources>
