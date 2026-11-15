@@ -144,7 +144,7 @@ class ItemsFragment : Fragment(), ItemOperationsListener, Breadcrumbs.Breadcrumb
         if (requestCode == VIDEO_REQUEST_CODE || requestCode == IMAGE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 val path = currentMediaFile?.path
-                if (path != null && activity?.isPathOnHidden(path)!!) {
+                if (path != null && activity?.isPathOnHidden(path) == true) {
                     activity?.rescanPaths(arrayListOf(path))
                 }
             } else {
@@ -497,15 +497,29 @@ class ItemsFragment : Fragment(), ItemOperationsListener, Breadcrumbs.Breadcrumb
     }
 
     private fun takeMedia(action: String, extension: String, requestCode: Int) {
-        Intent(action).also { takePictureIntent ->
-            takePictureIntent.resolveActivity(context?.packageManager!!)?.also {
-                createMediaFile(currentPath, extension).also {
-                    currentMediaFile = it
-                    val mediaURI: Uri = this.requireContext().getUriForFile(it)
-                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mediaURI)
-                    startActivityForResult(takePictureIntent, requestCode)
-                }
-            }
+        val ctx = context ?: return
+        val captureIntent = Intent(action)
+        if (captureIntent.resolveActivity(ctx.packageManager) == null) {
+            activity?.toast(R.string.unknown_error_occurred)
+            return
+        }
+        val file = createMediaFileOrFallback(
+            currentPath, extension, ctx.getExternalFilesDir(android.os.Environment.DIRECTORY_DCIM)
+        )
+        if (file == null) {
+            activity?.toast(R.string.unknown_error_occurred)
+            return
+        }
+        try {
+            currentMediaFile = file
+            captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, ctx.getUriForFile(file))
+            captureIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            startActivityForResult(captureIntent, requestCode)
+        } catch (e: Exception) {
+            // IllegalArgumentException (FileProvider), ActivityNotFoundException, SecurityException
+            file.delete()
+            currentMediaFile = null
+            activity?.toast(R.string.unknown_error_occurred)
         }
     }
 

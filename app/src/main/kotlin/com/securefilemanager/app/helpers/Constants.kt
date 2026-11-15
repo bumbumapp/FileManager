@@ -243,6 +243,26 @@ fun createMediaFile(path: String, extension: String): File =
         File(path)
     )
 
+/**
+ * Creates the capture target in [path]; when that folder is not writable (scoped storage without
+ * all-files access, e.g. the storage root on EMUI/Android 10) falls back to [fallbackDir].
+ * Returns null when neither works, so callers can show an error instead of crashing.
+ */
+fun createMediaFileOrFallback(path: String, extension: String, fallbackDir: File?): File? {
+    try {
+        return createMediaFile(path, extension)
+    } catch (e: Exception) {
+        // IOException / SecurityException: try the fallback below.
+    }
+    if (fallbackDir == null) return null
+    return try {
+        fallbackDir.mkdirs()
+        createMediaFile(fallbackDir.path, extension)
+    } catch (e: Exception) {
+        null
+    }
+}
+
 fun getNotificationId(): Int = (System.currentTimeMillis() / 1000).toInt()
 
 fun getFilePlaceholderDrawables(context: Context): HashMap<String, Drawable> {
